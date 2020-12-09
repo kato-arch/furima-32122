@@ -11,7 +11,7 @@ class User < ApplicationRecord
          validates :last_name_kana, presence: true
          validates :birth_day, presence: true
 
-         validates :name, presence: true, length: { minimum: 6 }
+         validates :password, presence: true, length: { minimum: 6 }
 
          
 
