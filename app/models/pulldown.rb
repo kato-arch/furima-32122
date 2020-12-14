@@ -1,35 +1,16 @@
 class Pulldown < ActiveHash::Base
+  # カテゴリー
   self.data = [
     { id: 1, name: '--' },
-    { id: 2, name: '経済' },
-    { id: 3, name: '政治' },
-    { id: 4, name: '地域' },
-    { id: 5, name: '国際' },
-    { id: 6, name: 'IT' },
-    { id: 7, name: 'エンタメ' },
+    { id: 2, name: 'レディース' },
+    { id: 3, name: 'メンズ' },
+    { id: 4, name: 'ベビー・キッズ' },
+    { id: 5, name: 'インテリア' },
+    { id: 6, name: '本' },
+    { id: 7, name: '家電' },
     { id: 8, name: 'スポーツ' },
-    { id: 9, name: 'グルメ' },
+    { id: 9, name: 'ハンドメイド' },
     { id: 10, name: 'その他' }
   ]
 
-  include ActiveHash::Associations
-  has_many :item
 end
-
-  # class Pulldown2 < ActiveHash::Base
-  #   self2.data = [
-  #     { id: 1, name: '--' },
-  #     { id: 2, name: '経済' },
-  #     { id: 3, name: '政治' },
-  #     { id: 4, name: '地域' },
-  #     { id: 5, name: '国際' },
-  #     { id: 6, name: 'IT' },
-  #     { id: 7, name: 'エンタメ' },
-  #     { id: 8, name: 'スポーツ' },
-  #     { id: 9, name: 'グルメ' },
-  #     { id: 10, name: 'その他' }
-  #   ]
-
-  #   include ActiveHash::Associations
-  #   has_many :item
-  # end
