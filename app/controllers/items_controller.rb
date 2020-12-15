@@ -22,11 +22,10 @@ before_action :authenticate_user!, only: [:new]
   end
 
 
-
-
   def show
-
+    
   end
+
 
   def edit
 

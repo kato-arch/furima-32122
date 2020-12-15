@@ -1,4 +1,5 @@
 class Area < ActiveHash::Base
+  include ActiveHash::Associations
   # 発送元の地域 
   self.data = [
     { id: 1, name: '--' },

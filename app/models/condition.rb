@@ -1,4 +1,5 @@
 class Condition < ActiveHash::Base
+  include ActiveHash::Associations
   # 商品の状態
   self.data = [
     { id: 1, name: '--' },
