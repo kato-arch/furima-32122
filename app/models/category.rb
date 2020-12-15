@@ -1,4 +1,5 @@
 class Category < ActiveHash::Base
+  include ActiveHash::Associations
   # カテゴリー
   self.data = [
     { id: 1, name: '--' },

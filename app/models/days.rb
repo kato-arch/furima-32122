@@ -1,4 +1,5 @@
 class Days < ActiveHash::Base
+  include ActiveHash::Associations
   # 発送までの日数 
   self.data = [
     { id: 1, name: '--' },
