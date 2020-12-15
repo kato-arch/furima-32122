@@ -9,9 +9,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
     priceInput.addEventListener("input", () => {
       const inputValue = document.getElementById("item-price").value;
-      console.log(inputValue);
         let tax = Math.floor(inputValue * 0.1)
-        console.log(tax);
         addTaxDom.innerHTML = tax ;
         profitDom.innerHTML = (inputValue - tax)
     })
