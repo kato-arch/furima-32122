@@ -11,7 +11,7 @@ class Item < ApplicationRecord
     validates :price
     validates :category_id
     validates :condition_id
-    validates :fee_id           
+    validates :fee_id 
     validates :region_id 
     validates :shipping_days_id
   end
@@ -19,6 +19,7 @@ class Item < ApplicationRecord
   with_options presence: true, numericality: { only_integer: 1 } do
     validates :category_id
     validates :condition_id
+    validates :fee_id
     validates :region_id
     validates :shipping_days_id
   end
