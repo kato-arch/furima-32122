@@ -5,7 +5,7 @@ RSpec.describe Item, type: :model do
 end
 
 
- describe '商品 新規登録 正常系' do
+ describe '商品 新規登録' do
 
     context '新規登録 正常系' do
       it '全項目が入力されていたら、登録できる' do
