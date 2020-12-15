@@ -44,10 +44,6 @@ end
 
 private
 
-# def user_params
-#   devise_parameter_sanitizer.permit(:deviseの処理名, keys: [:許可するキー])
-# end
-
 def item_params
   params.require(:item).permit(:name, :description, :price, :category_id, :condition_id, :fee_id, :region_id, :shipping_days_id,:image)
   .merge(user_id: current_user.id)
