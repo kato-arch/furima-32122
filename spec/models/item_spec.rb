@@ -68,16 +68,28 @@ end
           expect(@item.errors.full_messages).to include "Price can't be blank"
         end
 
-        it "価格の範囲が、¥300~¥9,999,999の間であること" do
-          @item.price = '200'
-          @item.valid?
-          expect(@item.errors.full_messages).to include "Price must be greater than or equal to 300"
-        end
-
         it '販売価格は半角数字のみ保存可能であること' do
           @item.price = '１２３４５'
           @item.valid?
           expect(@item.errors.full_messages).to include "Price is not a number"
+        end
+
+        it "価格の範囲が、¥300~¥9,999,999の間であること" do
+          @item.price = 200
+          @item.valid?
+          expect(@item.errors.full_messages).to include "Price must be greater than or equal to 300"
+        end
+
+        it "価格の範囲が、¥300~¥9,999,999の間であること" do
+          @item.price = 1000000000
+          @item.valid?
+          expect(@item.errors.full_messages).to include "Price must be less than or equal to 9999999"
+        end
+
+        it 'active_hashで実装するものについては「1では登録できない」' do
+          @item.price = 1
+          @item.valid?
+          expect(@item.errors.full_messages).to include "Pulldown must exist"
         end
     end
   end
