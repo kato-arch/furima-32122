@@ -14,7 +14,7 @@ before_action :authenticate_user!, only: [:new]
 
     # 正常の場合、saveしてルートパスに戻る
     if @item.save
-      redirect_to items_path
+      redirect_to root_path
       else
         # 異常の場合
       render "new"
@@ -49,6 +49,6 @@ private
 # end
 
 def item_params
-  params.require(:item).permit(:name, :description, :price, :category_id, :condition_id, :fee_id, :region_id, :shipping_days_id)
+  params.require(:item).permit(:name, :description, :price, :category_id, :condition_id, :fee_id, :region_id, :shipping_days_id,:image)
   .merge(user_id: current_user.id)
 end
