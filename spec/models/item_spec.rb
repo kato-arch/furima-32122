@@ -87,7 +87,7 @@ end
         end
 
         it 'active_hashで実装するものについては「1では登録できない」' do
-          @item.price = 1
+          @item.category_id = 1
           @item.valid?
           expect(@item.errors.full_messages).to include "Pulldown must exist"
         end
