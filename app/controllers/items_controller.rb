@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
-before_action :authenticate_user!, only: [:new, :edit, :update]
+before_action :authenticate_user!, only: [:new, :create, :edit, :update]
+before_action :set_item, only: [:show, :edit, :update]
 
 
   def index
@@ -24,12 +25,12 @@ before_action :authenticate_user!, only: [:new, :edit, :update]
 
 
   def show
-    @item = Item.find(params[:id])
+  
   end
 
 
   def edit
-    @item = Item.find(params[:id])
+
     unless @item.user_id == current_user.id
       redirect_to action: :index
     end
@@ -37,7 +38,7 @@ before_action :authenticate_user!, only: [:new, :edit, :update]
 
 
   def update
-    @item = Item.find(params[:id])
+  
     if @item.update(item_params)
       redirect_to item_path
      else
@@ -57,6 +58,10 @@ before_action :authenticate_user!, only: [:new, :edit, :update]
 
   private
 
+  def set_item
+    @item = Item.find(params[:id])
+  end
+  
   def item_params
     params.require(:item).permit(:name, :description, :price, :category_id, :condition_id, :fee_id, :region_id, :shipping_days_id, :image)
     .merge(user_id: current_user.id)
