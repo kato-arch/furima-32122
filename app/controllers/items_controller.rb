@@ -30,6 +30,9 @@ before_action :authenticate_user!, only: [:new, :edit, :update]
 
   def edit
     @item = Item.find(params[:id])
+    unless @item.user_id == current_user.id
+      redirect_to action: :index
+    end
   end
 
 
@@ -48,13 +51,14 @@ before_action :authenticate_user!, only: [:new, :edit, :update]
   end
 
 
-end
 
 
 
-private
 
-def item_params
-  params.require(:item).permit(:name, :description, :price, :category_id, :condition_id, :fee_id, :region_id, :shipping_days_id, :image)
-  .merge(user_id: current_user.id)
+  private
+
+  def item_params
+    params.require(:item).permit(:name, :description, :price, :category_id, :condition_id, :fee_id, :region_id, :shipping_days_id, :image)
+    .merge(user_id: current_user.id)
+  end
 end
