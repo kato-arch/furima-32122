@@ -7,9 +7,8 @@
     <h2 class="items-sell-title">商品の情報を入力</h2>
     <%= form_with model: @item, url: items_path, local: true do |f| %>
     
-    <%# インスタンスを渡して、エラー発生時にメッセージが表示されるようにしましょう。%>
+    <%# エラー発生時にメッセージが表示%>
     <%= render 'shared/error_messages', model: f.object %>
-    <%# //インスタンスを渡して、エラー発生時にメッセージが表示されるようにしましょう。%>
 
     <%# 出品画像 %>
     <div class="img-upload">
@@ -82,7 +81,7 @@
           発送までの日数
           <span class="indispensable">必須</span>
         </div>
-        <%= f.collection_select(:shipping_days_id, Shipping_days.all, :id, :name, {}, {class:"select-box", id:"item-scheduled-delivery"}) %>
+        <%= f.collection_select(:shipping_days_id, ShippingDays.all, :id, :name, {}, {class:"select-box", id:"item-scheduled-delivery"}) %>
       </div>
     </div>
     <%# /配送について %>
