@@ -1,4 +1,4 @@
-class Area < ActiveHash::Base
+class Region < ActiveHash::Base
   include ActiveHash::Associations
   # 発送元の地域 
   self.data = [

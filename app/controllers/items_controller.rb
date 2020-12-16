@@ -23,7 +23,7 @@ before_action :authenticate_user!, only: [:new]
 
 
   def show
-
+    @item = Item.find(params[:id])
   end
 
 
@@ -44,6 +44,6 @@ end
 private
 
 def item_params
-  params.require(:item).permit(:name, :description, :price, :category_id, :condition_id, :fee_id, :region_id, :shipping_days_id,:image)
+  params.require(:item).permit(:name, :description, :price, :category_id, :condition_id, :fee_id, :region_id, :shipping_days_id, :image)
   .merge(user_id: current_user.id)
 end

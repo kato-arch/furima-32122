@@ -1,4 +1,4 @@
-class Days < ActiveHash::Base
+class ShippingDays < ActiveHash::Base
   include ActiveHash::Associations
   # 発送までの日数 
   self.data = [
