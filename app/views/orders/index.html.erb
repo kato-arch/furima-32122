@@ -30,7 +30,6 @@
       </p>
     </div>
     <%# /支払額の表示 %>
-    <%# <%= form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f| %> 
     <%= form_with model: @order_address, url: item_orders_path, id: 'charge-form', class: 'transaction-form-wrap',local: true do |f| %>
     <%# カード情報の入力 %>
         <%# エラー発生時にメッセージを表示%>
