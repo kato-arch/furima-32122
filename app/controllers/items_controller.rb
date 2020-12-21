@@ -19,7 +19,7 @@ before_action :set_item, only: [:show, :edit, :update, :destroy]
       redirect_to root_path
       else
         # 異常の場合
-      render "new"
+      render :new
     end
   end
 
@@ -41,7 +41,7 @@ before_action :set_item, only: [:show, :edit, :update, :destroy]
     if @item.update(item_params)
       redirect_to item_path
      else
-      render "edit"
+      render :edit
     end
   end
 
@@ -61,7 +61,10 @@ before_action :set_item, only: [:show, :edit, :update, :destroy]
   end
   
   def item_params
-    params.require(:item).permit(:name, :description, :price, :category_id, :condition_id, :fee_id, :region_id, :shipping_days_id, :image)
-    .merge(user_id: current_user.id)
+    params.require(:item).permit(
+      :name, :description, :price, :category_id, :condition_id, :fee_id, :region_id, :shipping_days_id, :image
+    ).merge(
+      user_id: current_user.id
+    )
   end
 end
