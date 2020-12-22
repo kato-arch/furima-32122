@@ -25,9 +25,9 @@
       </span>
     </div>
 
-      <%# ログインしているユーザーと出品しているユーザーが、同一人物の場合と同一人物ではない場合の条件分岐 %>
       <%# ログイン状態の出品者でも、売却済みの商品に対しては「編集・削除ボタン」が表示されない %>
-     <% if user_signed_in? && current_user.id == @item.user_id && @item.order.nil? %>
+      <%# ログインしているユーザーと出品しているユーザーが、同一人物の場合と同一人物ではない場合の条件分岐 %>
+     <% if user_signed_in? && @item.order.nil? %>
 
       <% if current_user.id == @item.user_id %> 
         <%= link_to '商品の編集', edit_item_path(@item.id), method: :get, class: "item-red-btn" %>
