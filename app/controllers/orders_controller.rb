@@ -4,7 +4,8 @@ class OrdersController < ApplicationController
 
   def index
     @order_address = OrderAddress.new
-    if @item.order.present?
+       # 商品が売り切れている場合、あるいは出品者の場合
+    if @item.order.present? || @item.user_id == current_user.id
        redirect_to root_path
     end
   end
