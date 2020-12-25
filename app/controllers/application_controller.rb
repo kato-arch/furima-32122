@@ -1,5 +1,10 @@
 class ApplicationController < ActionController::Base
+  # コントローラー説明：
+  # application_controller.rb＝すべてのコントローラーが継承しているファイル
+
+  # Basic認証によるログインの要求は、すべてのコントローラーで行う→privateに追記できる
  before_action :basic_auth
+  # devise使う→privateで「configure_permitted_parameters」が使える
  before_action :configure_permitted_parameters, if: :devise_controller?
 
   private
