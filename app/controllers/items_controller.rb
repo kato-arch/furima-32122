@@ -12,7 +12,7 @@ before_action :set_item, only: [:show, :edit, :update, :destroy]
 
   # 商品出品画面
   def new
-    #  Itemモデルの新規オブジェクトを生成
+    # Itemモデルの新規オブジェクトを生成
     @item = Item.new
   end
 
