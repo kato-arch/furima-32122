@@ -7,26 +7,36 @@ const pay = () => {
     const formResult = document.getElementById("charge-form");
     const formData = new FormData(formResult);
 
+    // カード情報を設定
     const card = {
+      // クレジットカードに関する情報を取得
       number: formData.get("order_address[number]"),
       cvc: formData.get("order_address[cvc]"),
       exp_month: formData.get("order_address[month]"),
       exp_year: `20${formData.get("order_address[year]")}`,
     };
 
+    // カードの情報をトークン化
     Payjp.createToken(card, (status, response) => {
       if (status == 200) {
+          // 正常終了した場合
+          // トークンを取得
         const token = response.id;
+        // トークン情報を追加するフォームを取得
         const renderDom = document.getElementById("charge-form");
+        // 追加するトークン情報を生成
         const tokenObj = `<input value=${token} name='token' type="hidden"> `;
+        // フォームの中にトークン情報を追加
         renderDom.insertAdjacentHTML("beforeend", tokenObj);
+        // 購入情報の送信処理（フォーム情報のクリア）
       }
 
+      // カード情報クリア
       document.getElementById("card-number").removeAttribute("name");
       document.getElementById("card-cvc").removeAttribute("name");
       document.getElementById("card-exp-month").removeAttribute("name");
       document.getElementById("card-exp-year").removeAttribute("name");
-
+      // フォームの再送信
       document.getElementById("charge-form").submit();
     });
   });
